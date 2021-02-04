@@ -1,8 +1,10 @@
+import createElement from '../lib/createElement'
 import './Button.css'
 
 export default function Button(text) {
-  const el = document.createElement('button')
-  el.className = 'Button'
-  el.innerHTML = text
+  const el = createElement('button', {
+    className: 'Button',
+    innerHTML: text,
+  })
   return el
 }
