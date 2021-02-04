@@ -1,5 +1,5 @@
 {
-  "name": "quiz-app",
+  "name": "quiz-app-component-based",
   "version": "0.0.1",
   "scripts": {
     "prettier:write": "prettier --write .",
@@ -23,7 +23,7 @@
     "*.html": "htmlhint"
   },
   "keywords": [],
-  "author": "Lene Frei",
+  "author": "Anneke Schütte",
   "license": "ISC",
   "main": "index.js",
   "repository": {

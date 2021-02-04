@@ -1,6 +1,7 @@
 .Button {
   padding: 2px 10px;
-  background: forestgreen;
+  background-color: indigo;
   color: #fff;
   border-radius: 5px;
+  border: none;
 }
