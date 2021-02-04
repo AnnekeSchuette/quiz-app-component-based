@@ -1,12 +1,12 @@
 import './Header.css'
 
-export default function Header(headline, subline) {
-  const el = document.ceateElement('header')
+export default function Header(title, subtitle) {
+  const el = document.createElement('header')
   el.className = 'Header'
-  el.innerHtml = `
+  el.innerHTML = `
     <h1 class="Header__title">
-      ${headline}
-      <span class="Header__subline">${subline}</span>
+      ${title}
+      <span class="Header__subtitle">${subtitle}</span>
     </h1>
   `
   return el
