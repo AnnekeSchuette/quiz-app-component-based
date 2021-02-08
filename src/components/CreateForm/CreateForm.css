@@ -1,0 +1,116 @@
+[class^='Form__'] {
+  font-family: inherit;
+  outline: none;
+}
+
+.Form__fieldset {
+  border: none;
+  padding: 0;
+  display: grid;
+  justify-items: center;
+}
+
+.Form__fieldwrap {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+}
+
+.Form__label {
+  font-size: 0.9em;
+  margin-bottom: 5px;
+  font-weight: normal;
+}
+
+.Form__input--text,
+.Form__textarea,
+.Form__select {
+  border: 1px solid var(--color-lightjet);
+  border-radius: 5px;
+  padding: 10px;
+  vertical-align: top;
+  font-size: 0.9em;
+  width: 100%;
+}
+
+.Form__input::placeholder {
+  color: var(--color-lightjet);
+}
+
+.Form__select {
+  text-transform: none;
+}
+
+.Form__input,
+.Form__select:not([multiple]):not([size]) {
+  height: 40px;
+}
+
+.Form__input.Form__input--radio,
+.Form__input.Form__input--check {
+  display: inline-block;
+  height: 25px;
+  width: 25px;
+  overflow: hidden;
+  margin-top: -4px;
+  vertical-align: middle;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border: 1px solid #ccc;
+  transition: 0.2s ease-in-out;
+  transition-property: all;
+  transition-property: background-color, border;
+}
+
+.Form__select[multiple],
+.Form__select[size] {
+  padding-top: 4px;
+  padding-bottom: 4px;
+  vertical-align: top;
+}
+
+.Form__select:not([multiple]):not([size]) {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 20px;
+  background-image: url('data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2224%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2016%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23666%22%20points%3D%2212%201%209%206%2015%206%22%20%2F%3E%0A%20%20%20%20%3Cpolygon%20fill%3D%22%23666%22%20points%3D%2212%2013%209%208%2015%208%22%20%2F%3E%0A%3C%2Fsvg%3E%0A');
+  background-repeat: no-repeat;
+  background-position: 100% 50%;
+}
+
+.Form__submit {
+  border: 1px solid var(--color-eerie-black);
+  color: var(--color-eerie-black);
+  background: none;
+  transition: all 0.3s ease-out;
+  padding: 3px var(--space-small);
+  border-radius: 3px;
+  font-weight: 300;
+  font-size: 0.9em;
+  outline: none;
+  text-align: center;
+}
+
+.Form__submit:hover,
+.Form__submit:focus {
+  background: var(--color-eerie-black);
+  color: var(--color-azure);
+  transition: all 0.3s ease-out;
+}
+
+.Form__counter-indicator {
+  position: absolute;
+  right: 0;
+  bottom: -17px;
+  text-align: right;
+  font-size: 0.55em;
+  color: var(--color-jet);
+}
+
+.Form__counter-indicator strong {
+  font-weight: 400;
+  color: var(--color-sky-blue1);
+}
