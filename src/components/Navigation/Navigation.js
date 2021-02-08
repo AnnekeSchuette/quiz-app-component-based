@@ -1,5 +1,5 @@
-import createElement from '../lib/createElement'
-import getAllByDataJs from '../lib/getAllByDataJs'
+import createElement from '../../lib/createElement'
+import getAllByDataJs from '../../lib/getAllByDataJs'
 import './Navigation.css'
 
 const navItems = [
