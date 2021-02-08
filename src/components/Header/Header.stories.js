@@ -5,4 +5,4 @@ export default {
   component: Header,
 }
 
-export const base = () => Header('Quiz App', 'Dashboard')
+export const base = () => Header('Quiz App', 'Dashboard').el

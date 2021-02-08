@@ -34,3 +34,11 @@
 .Navigation__label {
   font-size: 0.7em;
 }
+
+.icon {
+  display: inline-block;
+  color: #444;
+  width: 2em;
+  height: 2em;
+  fill: currentColor;
+}
