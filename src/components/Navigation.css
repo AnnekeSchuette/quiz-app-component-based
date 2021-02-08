@@ -1,0 +1,36 @@
+.Navigation {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  padding: 0;
+  margin: 0;
+  background: var(--color-rich-black);
+  gap: 1px;
+}
+
+.Navigation__item {
+  display: flex;
+  gap: 10px;
+  flex-flow: column;
+  background: var(--color-eerie-black);
+  color: var(--color-azure);
+  text-align: center;
+  text-decoration: none;
+  padding: 15px 5px 5px;
+  align-items: center;
+}
+
+.Navigation__item--active,
+.Navigation__item:hover {
+  background: var(--color-rich-black);
+  color: var(--color-sky-blue1);
+  transition: background-color 0.5s ease-out;
+}
+
+.Navigation__item > i {
+  display: block;
+  font-size: 1.3em;
+}
+
+.Navigation__label {
+  font-size: 0.7em;
+}
