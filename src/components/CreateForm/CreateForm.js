@@ -8,15 +8,14 @@ export default function CreateForm(onSubmit) {
     {
       className: 'CreateForm',
       innerHTML: `
-        <label class="Form_label">Question:
-          <input name="question" class="Form_input--text" placeholder="Question goes here ..."></input>
+        <label class="Form__label" for="question">Question:
         </label>
-        <label class="Form_label">Answer:
-          <textarea name="answer" class="Form_textarea" placeholder="Answer goes here ..." rows="3"></textarea>
-        </label>
+        <input name="question" class="Form__input--text" placeholder="Question goes here ..."></input>
+        <label class="Form__label" for="answer">Answer:</label>
+          <textarea name="answer" class="Form__textarea" placeholder="Answer goes here ..." rows="3"></textarea>
       `,
     },
-    Button('Create Question')
+    Button('Create Question', 'Form__submit')
   )
   form.addEventListener('submit', event => {
     event.preventDefault()
