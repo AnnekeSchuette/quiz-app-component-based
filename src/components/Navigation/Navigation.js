@@ -1,69 +1,39 @@
 import createElement from '../../lib/createElement'
-import getAllByDataJs from '../../lib/getAllByDataJs'
+import svgComponent from '../../lib/svgComponent'
 import './Navigation.css'
 
-const navItems = [
-  { name: 'Home', ariaName: 'Home', iconClass: 'icon-anchor1' },
-  {
-    name: 'Bookmarks',
-    ariaName: 'Bookmarks',
-    iconClass: 'icon-bookmark-outline',
-  },
-  {
-    name: 'Add Card',
-    ariaName: 'Create a Quiz Card',
-    iconClass: 'icon-list-add',
-  },
-  {
-    name: 'Settings',
-    ariaName: 'Quiz App Settings & Profile',
-    iconClass: 'icon-user1',
-  },
+const buttonsConfig = [
+  { svgId: 'icon-anchor1', name: 'Home' },
+  { svgId: 'icon-bookmark-outline', name: 'Bookmarks' },
+  { svgId: 'icon-list-add', name: 'Add Card' },
+  { svgId: 'icon-user1', name: 'Settings' },
 ]
 
-export default function Navigation() {
-  const el = createElement('nav', { className: 'Navigation' })
-  createNavItems(navItems)
-  navInteraction()
-
-  function createNavItems(arr) {
-    arr.forEach(function (navItem) {
-      const navButton = createElement('button', {
+export default function Navigation(onNavigate) {
+  // destructuring assignment
+  const buttons = buttonsConfig.map(({ svgId, name }) => {
+    const button = createElement(
+      'button',
+      {
         className: 'Navigation__item',
-        innerHTML: `<i class="${navItem.iconClass}"></i>
-        <span class="navigation__label">${navItem.name}</span>`,
-      })
-      navButton.setAttribute('data-js', 'nav')
-      navButton.setAttribute('data-name', navItem.name)
-      navButton.setAttribute('aria-name', navItem.ariaName)
+      },
+      createElement('svg', {
+        className: `icon ${svgId}`,
+        innerHTML: `<use xlink:href="#${svgId}"/>`,
+      }),
+      createElement('span', { className: 'Navigation__label', innerText: name })
+    )
+    button.addEventListener('click', () => onNavigate(name))
+    return button
+  })
 
-      el.append(navButton)
-      return navButton
-    })
-  }
+  const iconSet = svgComponent()
 
-  function navInteraction() {
-    // const pages = getAllByDataJs('page')
-    const navButtons = getAllByDataJs('nav')
-
-    navButtons.forEach(button => {
-      button.addEventListener('click', () => {
-        const clickedButtonName = button.dataset.name
-        /* pages.forEach(page => {
-          const pageName = page.dataset.name
-          page.classList.toggle('hidden', clickedButtonName !== pageName)
-        }) */
-        navButtons.forEach(button => {
-          button.classList.toggle(
-            'Navigation__item--active',
-            clickedButtonName === button.dataset.name
-          )
-        })
-        console.log(clickedButtonName)
-      })
-    })
-    console.log('navButtons')
-  }
-
+  const el = createElement(
+    'nav',
+    { className: 'Navigation' },
+    ...buttons,
+    iconSet
+  )
   return el
 }
