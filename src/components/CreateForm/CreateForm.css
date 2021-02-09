@@ -7,7 +7,7 @@
   border: none;
   padding: 20px;
   display: grid;
-  justify-items: center;
+  grid-template-columns: 1fr 2fr;
 }
 
 .Form__fieldwrap {
@@ -20,6 +20,7 @@
   font-size: 0.9em;
   margin-bottom: 5px;
   font-weight: normal;
+  text-align: right;
 }
 
 .Form__input--text,
@@ -92,6 +93,7 @@
   font-size: 0.9em;
   outline: none;
   text-align: center;
+  grid-column-start: 2;
 }
 
 .Form__submit:hover,
