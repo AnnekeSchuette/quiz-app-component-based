@@ -1,4 +1,9 @@
 .Card {
-  background-color: lightcoral;
-  padding: 10px;
+  display: grid;
+  background: var(--color-azure);
+  border-radius: 10px;
+  color: var(--color-jet);
+  font-size: 0.9em;
+  justify-content: center;
+  padding: var(--space-medium);
 }
