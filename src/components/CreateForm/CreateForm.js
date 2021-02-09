@@ -9,10 +9,10 @@ export default function CreateForm(onSubmit) {
       className: 'CreateForm',
       innerHTML: `
   <label class="Form_label">Question:
-    <input class="Form_input--text" placeholder="Question goes here ..."></input>
+    <input name="question" class="Form_input--text" placeholder="Question goes here ..."></input>
   </label>
   <label class="Form_label">Answer:
-    <textarea class="Form_textarea" placeholder="Answer goes here ..." rows="3"></textarea>
+    <textarea name="answer" class="Form_textarea" placeholder="Answer goes here ..." rows="3"></textarea>
   </label>
   `,
     },
