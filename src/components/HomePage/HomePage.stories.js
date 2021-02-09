@@ -5,4 +5,4 @@ export default {
   component: HomePage,
 }
 
-export const base = () => HomePage('Quiz App', 'Dashboard').el
+export const base = () => HomePage()
