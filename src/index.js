@@ -1,8 +1,8 @@
-import Card from './components/Card'
 import Header from './components/Header'
 import Navigation from './components/Navigation'
 import createElement from './lib/createElement'
 import CreateForm from './components/CreateForm'
+import HomePage from './components/HomePage'
 
 const cards = []
 
@@ -12,7 +12,7 @@ const navigation = Navigation(onNavigate)
 
 const form = CreateForm(onSubmit)
 
-const homePage = createElement('main', { className: 'HomePage', hidden: false })
+const homePage = HomePage()
 
 const createPage = createElement(
   'main',
@@ -34,16 +34,9 @@ const settingsPage = createElement(
 
 function onSubmit(question, answer) {
   cards.push({ question, answer })
-  renderCards()
+  homePage.setCards(cards)
 }
 
-function renderCards() {
-  const cardElements = cards.map(({ question, answer }) =>
-    Card(question, answer)
-  )
-  homePage.innerHTML = ''
-  homePage.append(...cardElements)
-}
 const grid = createElement(
   'div',
   { className: 'appGrid' },
@@ -59,7 +52,7 @@ document.body.append(grid)
 
 function onNavigate(name) {
   if (name === 'Home') {
-    homePage.hidden = false
+    homePage.show()
     createPage.hidden = true
     bookmarksPage.hidden = true
     settingsPage.hidden = true
@@ -67,7 +60,7 @@ function onNavigate(name) {
   }
 
   if (name === 'Add Card') {
-    homePage.hidden = true
+    homePage.hide()
     createPage.hidden = false
     bookmarksPage.hidden = true
     settingsPage.hidden = true
@@ -75,7 +68,7 @@ function onNavigate(name) {
   }
 
   if (name === 'Bookmarks') {
-    homePage.hidden = true
+    homePage.hide()
     createPage.hidden = true
     bookmarksPage.hidden = false
     settingsPage.hidden = true
@@ -83,7 +76,7 @@ function onNavigate(name) {
   }
 
   if (name === 'Settings') {
-    homePage.hidden = true
+    homePage.hide()
     createPage.hidden = true
     bookmarksPage.hidden = true
     settingsPage.hidden = false
