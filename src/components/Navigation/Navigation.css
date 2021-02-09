@@ -3,8 +3,7 @@
   grid-template-columns: repeat(4, 1fr);
   padding: 0;
   margin: 0;
-  background: var(--color-rich-black);
-  gap: 1px;
+  gap: 2px;
 }
 
 .Navigation__item {
@@ -17,6 +16,7 @@
   text-decoration: none;
   padding: 15px 5px 5px;
   align-items: center;
+  border: none;
 }
 
 .Navigation__item--active,
@@ -26,19 +26,14 @@
   transition: background-color 0.5s ease-out;
 }
 
-.Navigation__item > i {
-  display: block;
-  font-size: 1.3em;
-}
-
 .Navigation__label {
   font-size: 0.7em;
 }
 
 .icon {
-  display: inline-block;
-  color: #444;
+  display: block;
+  color: var(--color-azure);
   width: 2em;
   height: 2em;
-  fill: currentColor;
+  fill: var(--color-azure);
 }
