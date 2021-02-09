@@ -4,6 +4,7 @@ import createElement from './lib/createElement'
 import CreateForm from './components/CreateForm'
 import HomePage from './components/HomePage'
 import CreatePage from './components/CreatePage'
+import SettingsPage from './components/SettingsPage'
 
 const cards = []
 
@@ -17,16 +18,12 @@ const homePage = HomePage()
 
 const createPage = CreatePage(form)
 
+const settingsPage = SettingsPage()
+
 const bookmarksPage = createElement(
   'main',
   { className: 'BookmarksPage', hidden: true },
   'Bookmarks page is under construction'
-)
-
-const settingsPage = createElement(
-  'main',
-  { className: 'SettingsPage', hidden: true },
-  'Setting page is under construction'
 )
 
 function onSubmit(question, answer) {
@@ -52,7 +49,7 @@ function onNavigate(name) {
     homePage.show()
     createPage.hide()
     bookmarksPage.hidden = true
-    settingsPage.hidden = true
+    settingsPage.hide()
     header.setText('Quiz App', 'Home')
   }
 
@@ -60,7 +57,7 @@ function onNavigate(name) {
     homePage.hide()
     createPage.show()
     bookmarksPage.hidden = true
-    settingsPage.hidden = true
+    settingsPage.hide()
     header.setText('Quiz App', 'Add Card')
   }
 
@@ -68,7 +65,7 @@ function onNavigate(name) {
     homePage.hide()
     createPage.hide()
     bookmarksPage.hidden = false
-    settingsPage.hidden = true
+    settingsPage.hide()
     header.setText('Quiz App', 'Bookmarks')
   }
 
@@ -76,7 +73,7 @@ function onNavigate(name) {
     homePage.hide()
     createPage.hide()
     bookmarksPage.hidden = true
-    settingsPage.hidden = false
+    settingsPage.show()
     header.setText('Quiz App', 'Account & Settings')
   }
 }
