@@ -2,11 +2,11 @@ import createElement from '../../lib/createElement'
 import Button from '../Button'
 import './CreateForm.css'
 
-export default function CreateForm() {
+export default function CreateForm(onSubmit) {
   const form = createElement(
     'form',
     {
-      className: 'Form',
+      className: 'CreateForm',
       innerHTML: `
   <label class="Form_label">Question:
     <input class="Form_input--text" placeholder="Question goes here ..."></input>
@@ -16,7 +16,14 @@ export default function CreateForm() {
   </label>
   `,
     },
-    Button('Submit')
+    Button('Create Question')
   )
+  form.addEventListener('submit', event => {
+    event.preventDefault()
+    const { question: questionInput, answer: answerInput } = form.elements
+    const question = questionInput.value
+    const answer = answerInput.value
+    onSubmit(question, answer)
+  })
   return form
 }
