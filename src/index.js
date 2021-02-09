@@ -3,6 +3,7 @@ import Navigation from './components/Navigation'
 import createElement from './lib/createElement'
 import CreateForm from './components/CreateForm'
 import HomePage from './components/HomePage'
+import CreatePage from './components/CreatePage'
 
 const cards = []
 
@@ -14,11 +15,7 @@ const form = CreateForm(onSubmit)
 
 const homePage = HomePage()
 
-const createPage = createElement(
-  'main',
-  { className: 'CreatePage', hidden: true },
-  form
-)
+const createPage = CreatePage(form)
 
 const bookmarksPage = createElement(
   'main',
@@ -41,9 +38,9 @@ const grid = createElement(
   'div',
   { className: 'appGrid' },
   header,
-  createPage,
-  bookmarksPage,
   homePage,
+  bookmarksPage,
+  createPage,
   settingsPage,
   navigation
 )
@@ -53,7 +50,7 @@ document.body.append(grid)
 function onNavigate(name) {
   if (name === 'Home') {
     homePage.show()
-    createPage.hidden = true
+    createPage.hide()
     bookmarksPage.hidden = true
     settingsPage.hidden = true
     header.setText('Quiz App', 'Home')
@@ -61,7 +58,7 @@ function onNavigate(name) {
 
   if (name === 'Add Card') {
     homePage.hide()
-    createPage.hidden = false
+    createPage.show()
     bookmarksPage.hidden = true
     settingsPage.hidden = true
     header.setText('Quiz App', 'Add Card')
@@ -69,7 +66,7 @@ function onNavigate(name) {
 
   if (name === 'Bookmarks') {
     homePage.hide()
-    createPage.hidden = true
+    createPage.hide()
     bookmarksPage.hidden = false
     settingsPage.hidden = true
     header.setText('Quiz App', 'Bookmarks')
@@ -77,7 +74,7 @@ function onNavigate(name) {
 
   if (name === 'Settings') {
     homePage.hide()
-    createPage.hidden = true
+    createPage.hide()
     bookmarksPage.hidden = true
     settingsPage.hidden = false
     header.setText('Quiz App', 'Account & Settings')
