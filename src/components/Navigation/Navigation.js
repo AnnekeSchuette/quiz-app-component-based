@@ -4,8 +4,8 @@ import './Navigation.css'
 
 const buttonsConfig = [
   { svgId: 'icon-anchor1', name: 'Home' },
-  { svgId: 'icon-bookmark-outline', name: 'Bookmarks' },
   { svgId: 'icon-list-add', name: 'Add Card' },
+  { svgId: 'icon-bookmark-outline', name: 'Bookmarks' },
   { svgId: 'icon-user1', name: 'Settings' },
 ]
 
