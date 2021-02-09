@@ -1,18 +1,17 @@
 import createElement from '../../lib/createElement'
+import svgComponent from '../../lib/svgComponent'
 import './Navigation.css'
 
-import svgSrc from '../../vendor/icomoon/symbol-defs.svg'
-
 const buttonsConfig = [
-  { svgPath: svgSrc, svgId: 'icon-anchor1', name: 'Home' },
-  { svgPath: svgSrc, svgId: 'icon-bookmark-outline', name: 'Bookmarks' },
-  { svgPath: svgSrc, svgId: 'icon-list-add', name: 'Add Card' },
-  { svgPath: svgSrc, svgId: 'icon-user1', name: 'Settings' },
+  { svgId: 'icon-anchor1', name: 'Home' },
+  { svgId: 'icon-bookmark-outline', name: 'Bookmarks' },
+  { svgId: 'icon-list-add', name: 'Add Card' },
+  { svgId: 'icon-user1', name: 'Settings' },
 ]
 
 export default function Navigation(onNavigate) {
   // destructuring assignment
-  const buttons = buttonsConfig.map(({ svgPath, svgId, name }) => {
+  const buttons = buttonsConfig.map(({ svgId, name }) => {
     const button = createElement(
       'button',
       {
@@ -20,7 +19,7 @@ export default function Navigation(onNavigate) {
       },
       createElement('svg', {
         className: `icon ${svgId}`,
-        innerHTML: `<use xlink:href="${svgPath}#${svgId}"></use>`,
+        innerHTML: `<use xlink:href="#${svgId}"/>`,
       }),
       createElement('span', { className: 'Navigation__label', innerText: name })
     )
@@ -28,6 +27,13 @@ export default function Navigation(onNavigate) {
     return button
   })
 
-  const el = createElement('nav', { className: 'Navigation' }, ...buttons)
+  const iconSet = svgComponent()
+
+  const el = createElement(
+    'nav',
+    { className: 'Navigation' },
+    ...buttons,
+    iconSet
+  )
   return el
 }

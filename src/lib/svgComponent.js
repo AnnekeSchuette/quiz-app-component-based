@@ -1,5 +1,7 @@
 import createElement from './createElement'
-export default function SvgComponent(props) {
+import setAttributes from './setAttributes'
+
+export default function SvgComponent() {
   const svgSrc = createElement('svg', {
     innerHTML: `
       <defs>
@@ -897,6 +899,11 @@ export default function SvgComponent(props) {
     </defs>
   </svg>
     `,
+  })
+  setAttributes(svgSrc, {
+    'aria-hidden': 'true',
+    style: 'position: "absolute", width: 0, height: 0;',
+    overflow: 'hidden',
   })
 
   return svgSrc
