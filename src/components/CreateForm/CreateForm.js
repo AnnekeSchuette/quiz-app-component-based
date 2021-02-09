@@ -15,7 +15,7 @@ export default function CreateForm(onSubmit) {
           <textarea name="answer" class="Form__textarea" placeholder="Answer goes here ..." rows="3"></textarea>
       `,
     },
-    Button('Create Question')
+    Button('Create Question', 'Form__submit')
   )
   form.addEventListener('submit', event => {
     event.preventDefault()
