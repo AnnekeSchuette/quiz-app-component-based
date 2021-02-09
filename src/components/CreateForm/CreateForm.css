@@ -3,9 +3,9 @@
   outline: none;
 }
 
-.Form__fieldset {
+.CreateForm {
   border: none;
-  padding: 0;
+  padding: 20px;
   display: grid;
   justify-items: center;
 }
