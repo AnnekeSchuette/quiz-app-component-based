@@ -8,13 +8,15 @@ export default function CreateForm(onSubmit) {
     {
       className: 'CreateForm',
       innerHTML: `
-  <label class="Form_label">Question:
-    <input name="question" class="Form_input--text" placeholder="Question goes here ..."></input>
-  </label>
-  <label class="Form_label">Answer:
-    <textarea name="answer" class="Form_textarea" placeholder="Answer goes here ..." rows="3"></textarea>
-  </label>
-  `,
+      <fieldset class="Form__fieldset">
+        <label class="Form_label">Question:
+          <input name="question" class="Form_input--text" placeholder="Question goes here ..."></input>
+        </label>
+        <label class="Form_label">Answer:
+          <textarea name="answer" class="Form_textarea" placeholder="Answer goes here ..." rows="3"></textarea>
+        </label>
+      </fieldset>
+      `,
     },
     Button('Create Question')
   )
@@ -24,6 +26,8 @@ export default function CreateForm(onSubmit) {
     const question = questionInput.value
     const answer = answerInput.value
     onSubmit(question, answer)
+    form.reset()
+    questionInput.focus()
   })
   return form
 }

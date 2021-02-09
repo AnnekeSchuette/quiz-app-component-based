@@ -33,7 +33,7 @@ const settingsPage = createElement(
 
 function onSubmit(question, answer) {
   cards.push({ question, answer })
-  console.log(cards)
+  form.reset()
   renderCards()
 }
 
@@ -48,9 +48,9 @@ const grid = createElement(
   'div',
   { className: 'appGrid' },
   headerEl,
-  homePage,
   createPage,
   bookmarksPage,
+  homePage,
   settingsPage,
   navigation
 )
@@ -79,7 +79,7 @@ function onNavigate(name) {
     settingsPage.hidden = true
   }
 
-  if (name === 'Setting') {
+  if (name === 'Settings') {
     homePage.hidden = true
     createPage.hidden = true
     bookmarksPage.hidden = true
